@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hello Canvas! </h1>
+    <img src="images/title.png" width="300" height="150" alt="GameCanvas" />
+    <br>
+    <canvas id="tutorial" width="400" height="300" style="border: 1px solid #d4d4d4">
+        <img src="images/title.png" width="300" height="150" alt="GameCanvas" />
+    </canvas>
+
+    <hr><div id="consoleBlock"></div>
+</body>
+
+
+<script>
+    const consoleBlock = document.getElementById('consoleBlock');
+    consoleBlock.innerHTML += "ctx";
+
+    const canvas = document.getElementById('tutorial');
+    const ctx = canvas.getContext('2d');
+
+    canvas.addEventListener("mousemove", function(event) {
+        consoleBlock.innerHTML = "Move X: " + event.clientX + ", Y: " + event.clientY;
+    });
+    canvas.addEventListener("click", function(event) {
+        consoleBlock.innerHTML += "<br> Click X: " + event.clientX + ", Y: " + event.clientY;
+    });
+
+
+
+    // ctx.fillRect(25, 25, 100, 100);
+    // ctx.clearRect(45, 45, 60, 60);
+    // ctx.strokeRect(50, 50, 50, 50);
+
+
+    ctx.beginPath();
+    ctx.arc(150, 150, 7, 0, Math.PI * 2, true);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(150, 150, 12, 0, Math.PI * 2, true);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Filled triangle
+    // ctx.beginPath();
+    // ctx.moveTo(25, 25);
+    // ctx.lineTo(105, 25);
+    // ctx.lineTo(25, 105);
+    // ctx.fill();
+
+    // Stroked triangle
+    // ctx.beginPath();
+    // ctx.moveTo(125, 125);
+    // ctx.lineTo(125, 45);
+    // ctx.lineTo(45, 125);
+    // ctx.closePath();
+    // ctx.stroke();
+
+
+</script>
+</html>
