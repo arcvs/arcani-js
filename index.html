@@ -3,65 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.2.4/svg.min.js"></script>
+<!--    <script type="module" src="./ObjGame_Box_Test.js"></script>-->
+    <script src="assets/victor.min.js"></script>
+    <script type="module" src="index.js"></script>
+    <style>
+        body {background-color: black}
+        canvas { background-color: black;}
+    </style>
 </head>
 <body>
-    <h1>Hello Canvas! </h1>
-    <img src="images/title.png" width="300" height="150" alt="GameCanvas" />
-    <br>
-    <canvas id="tutorial" width="400" height="300" style="border: 1px solid #d4d4d4">
+<!--    <h1>Hello Canvas!</h1>-->
+<!--    <img src="images/title.png" width="300" height="150" alt="GameCanvas" />-->
+<!--    <br>-->
+    <canvas id="canvas" width="926" height="428" style="border: 1px solid #d4d4d4">
         <img src="images/title.png" width="300" height="150" alt="GameCanvas" />
     </canvas>
 
     <hr><div id="consoleBlock"></div>
 </body>
 
+<!--<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var x = 0;
+    var y = 0;
 
-<script>
-    const consoleBlock = document.getElementById('consoleBlock');
-    consoleBlock.innerHTML += "ctx";
+    function draw(x, y) {
+        ctx.drawImage(imagesi,x,y,807,807);
+    }
 
-    const canvas = document.getElementById('tutorial');
-    const ctx = canvas.getContext('2d');
+    function move() {
+        // x++;
+        // y++;
+    }
 
-    canvas.addEventListener("mousemove", function(event) {
-        consoleBlock.innerHTML = "Move X: " + event.clientX + ", Y: " + event.clientY;
-    });
-    canvas.addEventListener("click", function(event) {
-        consoleBlock.innerHTML += "<br> Click X: " + event.clientX + ", Y: " + event.clientY;
-    });
+    function game() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        move();
+        draw(x, y);
+        requestAnimationFrame(game)
+    }
 
-
-
-    // ctx.fillRect(25, 25, 100, 100);
-    // ctx.clearRect(45, 45, 60, 60);
-    // ctx.strokeRect(50, 50, 50, 50);
-
-
-    ctx.beginPath();
-    ctx.arc(150, 150, 7, 0, Math.PI * 2, true);
-    ctx.fill();
-    ctx.closePath();
-
-    ctx.beginPath();
-    ctx.arc(150, 150, 12, 0, Math.PI * 2, true);
-    ctx.stroke();
-    ctx.closePath();
-
-    // Filled triangle
-    // ctx.beginPath();
-    // ctx.moveTo(25, 25);
-    // ctx.lineTo(105, 25);
-    // ctx.lineTo(25, 105);
-    // ctx.fill();
-
-    // Stroked triangle
-    // ctx.beginPath();
-    // ctx.moveTo(125, 125);
-    // ctx.lineTo(125, 45);
-    // ctx.lineTo(45, 125);
-    // ctx.closePath();
-    // ctx.stroke();
-
-
-</script>
+    var imagesi = new Image();
+    imagesi.onload = game;
+    imagesi.src="../sprites/RSQy0SXpBmM.jpg";
+</script>-->
 </html>
