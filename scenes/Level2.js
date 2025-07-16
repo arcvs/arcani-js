@@ -5,7 +5,7 @@ import {BoxYellow} from "../objects/BoxYellow.js";
 import {Circle} from "../objects/Circle.js";
 
 import {Scene} from "../classScene.js";
-import {Storage} from "../classStorage.js";
+import {State} from "../classState.js";
 
 export default class Level2 extends Scene {
 

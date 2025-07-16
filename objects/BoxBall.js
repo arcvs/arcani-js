@@ -1,5 +1,5 @@
 import {Line, Rectangle, Point, Circle, Polygon} from "../classPrimitives.js";
-import {Storage} from "../classStorage.js";
+import {State} from "../classState.js";
 import {Scene} from "../classScene.js";
 
 export class BoxBall extends Rectangle {
@@ -10,19 +10,15 @@ export class BoxBall extends Rectangle {
     {
         super(vx, vy, x, y, width, height)
         // this.isInteract = false;
-        this.pos.x = Storage.canvasWidth / 2
-        this.pos.y = Storage.canvasHeight / 2
+        this.pos.x = State.canvasWidth / 2
+        this.pos.y = State.canvasHeight / 2
 
         this.defaultVel = this.vel.clone()
         this.norm = this.vel.clone().normalize();
-
-        console.log(Scene.getObject('global', 'camera'))
-
     }
 
     update(dt) {
 
-        // console.log(this.vel)
 
         // сброс вектора направления
         this.vel.zero();
@@ -48,11 +44,17 @@ export class BoxBall extends Rectangle {
             this.pos.y += this.vel.y * dt;
             // this.pos.add(this.vel.clone().m1ultiplyScalar(secondsPassed));
         }
+        // console.log(this.pos)
     }
 
     draw(ctx) {
-        let deltaCameraX = 0
-        let deltaCameraY = 0
+        let camera = Scene.getObject('global', 'camera')
+        camera.deltaPositionCamera(this)
+
+        let deltaCameraX = camera.deltaX
+        let deltaCameraY = camera.deltaY
+        // console.log(camera.deltaX, camera.deltaY)
+        // console.log(State.activeScene[layers])
 
         ctx.fillStyle = this.isColliding ? 'white' : 'green'
         ctx.fillRect(this.pos.x - deltaCameraX, this.pos.y - deltaCameraY, this.width, this.height)

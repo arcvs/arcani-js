@@ -10,7 +10,7 @@ import {Circle} from "../objects/Circle.js";
 import {Camera} from "../objects/Camera.js";
 import {LineOne} from "../objects/LineOne.js";
 import {Scene} from "../classScene.js";
-import {Storage} from "../classStorage.js";
+import {State} from "../classState.js";
 
 
 export default class Level1 extends Scene {
@@ -22,11 +22,10 @@ export default class Level1 extends Scene {
     constructor() {
         super()
         // this.addToLayer('global', new Ball(0,0, 100,100))
-        this.addToLayer('layer1', new FPS(0, 0, 10, 30))
-
-        // this.addToLayer('layer1', new World(0,0, 500,500, '../sprites/RSQy0SXpBmM.jpg'))
-        this.addToLayer('layer2', new BoxBall(100,100, 100,100, 25,25))
         this.addToLayer('global', new Camera(100,100))
+        this.addToLayer('layer1', new FPS(0, 0, 10, 30))
+        this.addToLayer('layer2', new BoxBall(100,100, 100,100, 25,25))
+        // this.addToLayer('layer1', new World(0,0, 500,500, '../sprites/RSQy0SXpBmM.jpg'))
         // this.addToLayer('global', new BoxBall(0,0, 100,100, 25,25))
         // this.addToLayer('layer2', new Player(scopeScene,canvasWidth/2,180,100,100, 10))
     }

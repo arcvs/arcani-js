@@ -1,7 +1,7 @@
-import {Storage} from './classStorage.js'
-export class Physics extends Storage
+import {State} from './classState.js'
+export class Physics extends State
 {
-    static storage
+    static State
 
     constructor (state, x, y, vx, vy, mass) {
         super()
@@ -17,7 +17,7 @@ export class Physics extends Storage
         // this.isInteract = false;     // взаимодействие с другими объектами
         this.isRebound = false;         // отскакивание от других объектов
         this.isColliding = false;       // состояние пересечения объекта
-        this.isKeyDown = (key) => Storage.pressedKeys.has(key);
+        this.isKeyDown = (key) => State.pressedKeys.has(key);
 
     }
 

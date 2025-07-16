@@ -1,32 +1,32 @@
-import {Storage} from './classStorage.js'
+import {State} from './classState.js'
 
 export default class Game {
 
-    pressedKeys = Storage.pressedKeys
+    pressedKeys = State.pressedKeys
 
-    constructor(storage) {
-        Storage.bindStorage(storage)
+    constructor(state) {
+        State.bindState(state)
     }
 
     // игровой цикл
     loop(timeStamp) {
 
         // вычисление времени, прошедшего с момента последнего кадра
-        Storage.timeCurrentFrameMs = (timeStamp - Storage.timeLastFrameMs) / 1000;
-        Storage.timeCurrentFrameMs = Math.min(Storage.timeCurrentFrameMs, 0.1);
-        Storage.timeLastFrameMs = timeStamp;
+        State.timeCurrentFrameMs = (timeStamp - State.timeLastFrameMs) / 1000;
+        State.timeCurrentFrameMs = Math.min(State.timeCurrentFrameMs, 0.1);
+        State.timeLastFrameMs = timeStamp;
 
 
         // перебор всех слоев активной сцены
 
-        let scene = Storage.scenes[Storage.activeSceneName];
+        let scene = State.scenes[State.activeSceneName];
 
         for (let layerName in scene.layers) {
             let objects = scene.layers[layerName];
 
             // обновление состояний игровых объектов в каждом слое сцены
             for (let i = 0; i <  objects.length; i++) {
-                objects[i].update(Storage.timeCurrentFrameMs);
+                objects[i].update(State.timeCurrentFrameMs);
             }
 
             // сброс состояния столкновений объектов в каждом слое сцены
@@ -44,7 +44,7 @@ export default class Game {
         }
 
         // очистка холста
-        Storage.context.clearRect(0, 0, Storage.canvasWidth, Storage.canvasHeight);
+        State.context.clearRect(0, 0, State.canvasWidth, State.canvasHeight);
 
 
         for (let layerName in scene.layers) {
@@ -52,7 +52,7 @@ export default class Game {
 
             // отрисовка игровых объектов для каждого слоя
             for (let i = 0; i < objects.length; i++) {
-                objects[i].draw(Storage.context);
+                objects[i].draw(State.context);
             }
         }
 

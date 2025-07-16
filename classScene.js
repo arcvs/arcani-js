@@ -1,4 +1,4 @@
-import {Storage} from './classStorage.js'
+import {State} from './classState.js'
 
 export class Scene {
 
@@ -16,7 +16,7 @@ export class Scene {
     }
 
     static getObject(nameLayer, nameObj) {
-        return Storage.activeSceneName
+        return State.activeScene.layers[nameLayer].find(obj => obj.modelName === nameObj)
         // return this.layers[nameLayer]
     }
 
@@ -34,6 +34,6 @@ export class Scene {
     }
 
     static setActiveScene(nameScene) {
-        Storage.activeScene = Storage.scenes[nameScene]
+        State.activeScene = State.scenes[nameScene]
     }
 }

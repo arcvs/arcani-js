@@ -1,5 +1,5 @@
 import {Line, Rectangle, Point, Circle, Polygon} from "../classPrimitives.js";
-import {Storage} from '../classStorage.js'
+import {State} from '../classState.js'
 
 export class FPS extends Point
 {
